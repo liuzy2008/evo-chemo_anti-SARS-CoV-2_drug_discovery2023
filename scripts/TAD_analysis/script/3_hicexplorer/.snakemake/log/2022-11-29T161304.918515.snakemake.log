@@ -1,7 +1,0 @@
-Building DAG of jobs...
-MissingInputException in rule hicDetectLoops in line 10 of /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/7.1_loop.smk:
-Missing input files for rule hicDetectLoops:
-    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat_100000/heat_100000_100000_loops.bedgraph
-    wildcards: treatment=heat_100000, resolution=100000
-    affected files:
-        /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/heat_100000_100000_corrected.h5

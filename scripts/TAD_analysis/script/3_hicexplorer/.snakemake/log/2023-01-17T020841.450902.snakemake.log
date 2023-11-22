@@ -1,4 +1,0 @@
-Building DAG of jobs...
-WildcardErrorin line 9 of /home/lengliang/lzy/sj_3d/script/4_hicexplorer/5_TAD.smk:
-Wildcards in input files cannot be determined from output files:
-'resolution2'

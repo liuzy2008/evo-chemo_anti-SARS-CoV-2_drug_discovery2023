@@ -1,3 +1,0 @@
-ValueErrorin line 53 of /home/lengliang/lzy/sj_3d/script/4_hicexplorer/5_TAD.smk:
-invalid literal for int() with base 10: '{mindepth}'
-  File "/home/lengliang/lzy/sj_3d/script/4_hicexplorer/5_TAD.smk", line 53, in <module>

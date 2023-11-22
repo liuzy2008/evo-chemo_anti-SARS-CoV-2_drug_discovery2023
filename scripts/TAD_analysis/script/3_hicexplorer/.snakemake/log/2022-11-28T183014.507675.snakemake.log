@@ -1,7 +1,0 @@
-Building DAG of jobs...
-MissingInputException in rule hicFindAB in line 33 of /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/5_TAD.smk:
-Missing input files for rule hicFindAB:
-    output: /home/lengliang/lzy/3d/hicexplorer/result/6_hicFindAB/control/control_40000_pca1.bw, /home/lengliang/lzy/3d/hicexplorer/result/6_hicFindAB/control/control_40000_pca1.bedgraph, /home/lengliang/lzy/3d/hicexplorer/result/6_hicFindAB/control/control_40000_pca2.bw, /home/lengliang/lzy/3d/hicexplorer/result/6_hicFindAB/control/control_40000_pca2.bedgraph, /home/lengliang/lzy/3d/hicexplorer/result/6_hicFindAB/control/control_40000_pearson.h5, /home/lengliang/lzy/3d/hicexplorer/result/6_hicFindAB/control/control_40000_obsexp.h5, /home/lengliang/lzy/3d/hicexplorer/result/6_hicFindAB/control/control_40000_hicCompartmentalization.pdf
-    wildcards: treatment=control, resolution=40000
-    affected files:
-        /home/lengliang/lzy/3d/hicexplorer/result/3_hicCorrectMatrix/control/control_40000_corrected.h5

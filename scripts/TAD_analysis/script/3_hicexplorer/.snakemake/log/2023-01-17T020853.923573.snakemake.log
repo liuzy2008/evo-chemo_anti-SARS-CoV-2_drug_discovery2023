@@ -1,7 +1,0 @@
-Building DAG of jobs...
-MissingInputException in rule hicFindTADs in line 9 of /home/lengliang/lzy/sj_3d/script/4_hicexplorer/5_TAD.smk:
-Missing input files for rule hicFindTADs:
-    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/5000/syun_5000_corrected_domains.bed
-    wildcards: resolution=5000, sample=syun
-    affected files:
-        /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000_corrected.h5

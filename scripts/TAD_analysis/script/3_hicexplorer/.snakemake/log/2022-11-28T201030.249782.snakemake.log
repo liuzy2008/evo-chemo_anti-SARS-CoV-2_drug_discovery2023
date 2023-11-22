@@ -1,7 +1,0 @@
-Building DAG of jobs...
-MissingInputException in rule hicFindAB_plot in line 43 of /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/6_AB.smk:
-Missing input files for rule hicFindAB_plot:
-    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/control_100000_pca1_l_perchr.pdf, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/control_100000_pca1_l.pdf, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/control_100000_pca1.pdf, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/control_100000_pca1_combine.pdf
-    wildcards: resolution=100000, treatment=control
-    affected files:
-        /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/control/control_100000_corrected.h5
