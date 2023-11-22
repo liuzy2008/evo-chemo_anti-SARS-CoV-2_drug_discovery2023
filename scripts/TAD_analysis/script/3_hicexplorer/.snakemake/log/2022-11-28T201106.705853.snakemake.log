@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+all                   1              1              1
+hicFindAB            18             24             24
+hicFindAB_plot       18             24             24
+total                37              1             24
+
+
+[Mon Nov 28 20:11:07 2022]
+rule hicFindAB:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/heat_100000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/heat_100000_pca1.bw, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/heat_100000_pca1.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/heat_100000_pca2.bw, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/heat_100000_pca2.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/heat_100000_pearson.h5, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/heat_100000_obsexp.h5, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/heat_100000_hicCompartmentalization.pdf
+    log: /home/lengliang/lzy/3d/log/hicFindAB_heat_100000.log
+    jobid: 10
+    reason: Missing output files: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/heat_100000_pca2.bw, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/heat_100000_pca1.bw, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/6_hicFindAB/100000/heat_100000_pearson.h5
+    wildcards: resolution=100000, treatment=heat
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+RuleException in rule hicFindAB in line 13 of /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/6_AB.smk:
+AttributeError: 'InputFiles' object has no attribute 'obsexp_h5', when formatting the following:
+
+~/lzy/mambaforge/bin/hicPCA -m {input.corrected_h5} -we 1 2 --outputFileName {output.pca1} {output.pca2} --format bigwig  --obsexpMatrix {output.obsexp_h5} --pearsonMatrix {output.pearson_h5}  2>>{log}
+/home/lengliang/lzy/soft/bigWigToBedGraph {output.pca1} {output.pca1_bed} 2>>{log}
+/home/lengliang/lzy/soft/bigWigToBedGraph {output.pca2} {output.pca2_bed} 2>>{log}
+~/lzy/mambaforge/bin/hicCompartmentalization --obsexp_matrices {input.obsexp_h5} --pca  {output.pca1_bed}  -o  {output.pdf}  2>>{log}
+

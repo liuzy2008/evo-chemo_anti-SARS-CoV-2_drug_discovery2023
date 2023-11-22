@@ -1,0 +1,12 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules hicFindTADs_try_with_step and hicFindTADs_try_default_step are ambiguous for the file /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_P_0.01_MinD_3_MaxD_6_Delta_0.01_Step_1000_boundaries.bed.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	hicFindTADs_try_with_step: delta=0.01,maxdepth=6,mindepth=3,pval=0.01,resolution=40000,sample=sjap,step=1000
+	hicFindTADs_try_default_step: delta=0.01_Step_1000,maxdepth=6,mindepth=3,pval=0.01,resolution=40000,sample=sjap
+Expected input files:
+	hicFindTADs_try_with_step: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5
+	hicFindTADs_try_default_step: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5Expected output files:
+	hicFindTADs_try_with_step: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_P_0.01_MinD_3_MaxD_6_Delta_0.01_Step_1000_boundaries.bed
+	hicFindTADs_try_default_step: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_P_0.01_MinD_3_MaxD_6_Delta_0.01_Step_1000_boundaries.bed

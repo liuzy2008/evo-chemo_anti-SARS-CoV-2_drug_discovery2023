@@ -1,0 +1,101 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 20
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+all                1              1              1
+hicFindTADs        2             24             24
+total              3              1             24
+
+Select jobs to execute...
+
+[Thu Jan 19 21:27:01 2023]
+rule hicFindTADs:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_boundaries.bed
+    jobid: 1
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_boundaries.bed
+    wildcards: resolution=40000, sample=sjap
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*3))  --maxDepth $((40000*6))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*3))  --maxDepth $((40000*6))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*3))  --maxDepth $((40000*6))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.005  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_005  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*3))  --maxDepth $((40000*6))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.001  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_001  --numberOfProcessors 24 
+
+ # change depth
+ ########################################
+ ~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.005  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_005  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.001  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_001  --numberOfProcessors 24 
+
+
+ # change step with default
+ ########################################
+ ~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.005  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_005  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.001  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_001  --numberOfProcessors 24 
+
+Submitted job 1 with external jobid '10236.mu01'.
+
+[Thu Jan 19 21:27:03 2023]
+rule hicFindTADs:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_boundaries.bed
+    jobid: 2
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_boundaries.bed
+    wildcards: resolution=40000, sample=scep
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*3))  --maxDepth $((40000*6))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*3))  --maxDepth $((40000*6))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*3))  --maxDepth $((40000*6))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.005  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_005  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*3))  --maxDepth $((40000*6))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.001  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_001  --numberOfProcessors 24 
+
+ # change depth
+ ########################################
+ ~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.005  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_005  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  --step 40000  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.001  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_001  --numberOfProcessors 24 
+
+
+ # change step with default
+ ########################################
+ ~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.05  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_05  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.005  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_005  --numberOfProcessors 24 
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  --minDepth $((40000*5))  --maxDepth $((40000*10))  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.001  --delta 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_corrected_min3w_max_6w_s1w_d0_01_t_0_001  --numberOfProcessors 24 
+
+Submitted job 2 with external jobid '10237.mu01'.
+Terminating processes on user request, this might take some time.
+Complete log: .snakemake/log/2023-01-19T212700.789547.snakemake.log

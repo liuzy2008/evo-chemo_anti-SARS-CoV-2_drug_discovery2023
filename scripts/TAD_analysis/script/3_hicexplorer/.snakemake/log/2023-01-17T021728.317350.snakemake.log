@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 20
+Job stats:
+job                 count    min threads    max threads
+----------------  -------  -------------  -------------
+all                     1              1              1
+hicCorrectMatrix        1             24             24
+total                   2              1             24
+
+Select jobs to execute...
+
+[Tue Jan 17 02:17:29 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000_corrected.h5
+    jobid: 7
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000_corrected.h5
+    wildcards: resolution=5000, sample=syun
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000_corrected.h5 
+
+Submitted job 7 with external jobid '10021.mu01'.
+Terminating processes on user request, this might take some time.
+Complete log: .snakemake/log/2023-01-17T021728.317350.snakemake.log

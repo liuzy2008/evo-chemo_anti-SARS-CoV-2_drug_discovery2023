@@ -1,0 +1,54 @@
+#!/bin/bash  
+#PBS -q batch
+#PBS -V
+#PBS -N hic_pro
+#PBS -l nodes=1:ppn=48
+#PBS -o ${work_dir}/sj_3d/logs/1_hicpro/pbs_log
+#PBS -j oe
+cd  ${work_dir}/sj_3d/genomes
+export PATH=${work_dir}/mambaforge/bin:${work_dir}/mambaforge/envs/hicpro/bin:$PATH
+source  ${work_dir}/mambaforge/bin/activate
+source activate hicpro
+# build genome index
+for one_sp in `ls ${work_dir}/sj_3d/genomes/`
+do
+echo ${work_dir}/sj_3d/genomes/${one_sp}
+cd ${work_dir}/sj_3d/genomes/${one_sp}
+${work_dir}/mambaforge/bin/bowtie2-build --threads 48 ${work_dir}/sj_3d/genomes/${one_sp}/genome.fa ${work_dir}/sj_3d/genomes/${one_sp}/genome.fa &
+done 
+wait
+
+
+#  digest_genome
+for one_sp in `ls ${work_dir}/sj_3d/genomes/`
+do
+# echo ${work_dir}/sj_3d/genomes/${one_sp}
+cd ${work_dir}/sj_3d/genomes/${one_sp}
+${work_dir}/soft/hicpro/HiC-Pro_3.1.0/bin/utils/digest_genome.py -r dpnii -o ${work_dir}/sj_3d/genomes/${one_sp}/dpnii_genome.bed ${work_dir}/sj_3d/genomes/${one_sp}/genome.fa &
+done 
+wait
+
+for i in `ls ${work_dir}/sj_3d/script/1_hicpro/*.txt`
+do
+echo ${i}
+tmp=${i%.*}
+sample=${tmp##*\/}
+echo ${sample}
+# mv ${work_dir}/sj_3d/results/1_hicpro/${sample} ${work_dir}/sj_3d/results/1_hicpro/${sample}.old
+${work_dir}/soft/hicpro/HiC-Pro_3.1.0/bin/HiC-Pro -c  ${i} -i ${work_dir}/sj_3d/raw_hic/${sample} -o ${work_dir}/sj_3d/results/1_hicpro/${sample} 1>${work_dir}/sj_3d/logs/1_hicpro/${sample}_hic_pro.print 2>${work_dir}/sj_3d/logs/1_hicpro/${sample}_hic_pro.err_print
+done
+
+
+
+#### edit the  calculate_map_resolution.sh  first
+#get highest resolution
+for i in `ls  ${work_dir}/sj_3d/results/1_hicpro/*/hic_results/data/*/*.allValidPairs`
+do 
+# echo ${i}
+tmp=${i%.*}
+sample=${tmp##*\/}
+# cat  ${work_dir}/sj_3d/genomes/${sample}/genome.chrom.size
+totalbase=`cat ${work_dir}/sj_3d/genomes/${sample}/genome.chrom.size|awk 'BEGIN{a=0}{a+=$2}END{print a}'`
+# echo "${totalbase}"
+${work_dir}/soft/juicer/misc/calculate_map_resolution_lzy.sh ${work_dir}/sj_3d/results/1_hicpro/${sample}/hic_results/data/${sample}/${sample}.allValidPairs ${totalbase} ${work_dir}/sj_3d/results/1_hicpro/${sample}/hic_results/data/${sample}/${sample}.coverage_file |tee ${work_dir}/sj_3d/results/1_hicpro/${sample}/hic_results/data/${sample}/${sample}.resolution
+done 

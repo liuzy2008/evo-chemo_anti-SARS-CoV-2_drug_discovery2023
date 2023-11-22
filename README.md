@@ -12,6 +12,6 @@ This repository contains the relevant content for the article: Genome-guided Cep
 * **Functional BIAs biosynthetic genes.pep.fasta:**  Forty-one query protein sequences of reported benzylisoquinoline alkaloids-biosynthesis gene.
 
 
-## Additional scripts
-The figshare(https://doi.org/10.6084/m9.figshare.23887953) contains the major scripts used in the analysis. Requests for additional code can be made in the issues tab of this repository, or by contacting us by email (liuzhaoyu2008@hotmail.com).
+## Additional scripts and data
+All the code can be obtained through the [scripts](./scripts/) folder. The figshare(https://doi.org/10.6084/m9.figshare.23887953) contains the some data used in the analysis. 
 

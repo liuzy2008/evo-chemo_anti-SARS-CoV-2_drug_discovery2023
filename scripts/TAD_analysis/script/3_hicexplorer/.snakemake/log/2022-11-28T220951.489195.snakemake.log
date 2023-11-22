@@ -1,0 +1,38 @@
+Building DAG of jobs...
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+all                   1              1              1
+hicDetectLoops        8             24             24
+total                 9              1             24
+
+
+[Mon Nov 28 22:09:52 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/control_100000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/log/control_100000_loop.log
+    jobid: 1
+    reason: Missing output files: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph
+    wildcards: treatment=control, resolution=100000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+RuleException in rule hicDetectLoops in line 10 of /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/7.1_loop.smk:
+AttributeError: 'OutputFiles' object has no attribute 'sumloop', when formatting the following:
+
+pvalue=({params.pvalue})
+dis=({params.maxLoopDistance})
+pp=({params.pValuePreselection})
+num=${{#pvalue[@]}}
+for((i=0;i<num;i++)){{
+    for d in ${{dis[*]}}
+    do
+        # echo "${{pvalue[i]}}and${{d}}and ${{pp[i]}}"
+        ~/lzy/mambaforge/bin/hicDetectLoops -m {input.corrected_h5} -o {output.loop}.p${{pvalue[i]}}.d${{dis}} --maxLoopDistance ${{dis}} --peakInteractionsThreshold 5 --threads {threads} --peakWidth 2 --windowSize 5 --pValuePreselection  ${{pp[i]}} --pValue ${{pvalue[i]}} 2>>{log}
+        ~/lzy/mambaforge/bin/hicPlotMatrix -m {input.corrected_h5} -o {output.loop}.p${{pvalue[i]}}.d${{dis}}.pdf --vMax 4 --dpi 330  --loops {output.sumloop}.p${{pvalue[i]}}.d${{dis}}  2>>{log}
+
+    done
+}}
+echo ''>{output.loop}
+

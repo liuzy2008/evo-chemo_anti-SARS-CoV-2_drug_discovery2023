@@ -1,0 +1,324 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 20
+Job stats:
+job                      count    min threads    max threads
+---------------------  -------  -------------  -------------
+all                          1              1              1
+hicCorrectMatrix            27             24             24
+hicCorrectMatrix_plot       27             24             24
+hicPlotMatrix               27             24             24
+total                       82              1             24
+
+Select jobs to execute...
+
+[Sat Feb  4 14:56:20 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/syun_100000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/syun_100000_correct.pdf
+    jobid: 1
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/syun_100000_correct.pdf
+    wildcards: resolution=100000, sample=syun
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/syun_100000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/syun_100000_correct.pdf
+
+Submitted job 1 with external jobid '11069.mu01'.
+
+[Sat Feb  4 14:56:23 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/scep_25000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/scep_25000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/scep_25000_corrected.h5
+    jobid: 40
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/scep_25000_corrected.h5
+    wildcards: resolution=25000, sample=scep
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/scep_25000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/scep_25000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/scep_25000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/scep_25000_corrected.h5 
+
+Submitted job 40 with external jobid '11070.mu01'.
+
+[Sat Feb  4 14:56:23 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/50000/sjap_50000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/sjap_50000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/sjap_50000_corrected.h5
+    jobid: 54
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/sjap_50000_corrected.h5
+    wildcards: resolution=50000, sample=sjap
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/50000/sjap_50000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/sjap_50000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/50000/sjap_50000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/sjap_50000_corrected.h5 
+
+Submitted job 54 with external jobid '11071.mu01'.
+
+[Sat Feb  4 14:56:24 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/sjap_100000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/sjap_100000_correct.pdf
+    jobid: 19
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/sjap_100000_correct.pdf
+    wildcards: resolution=100000, sample=sjap
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/sjap_100000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/sjap_100000_correct.pdf
+
+Submitted job 19 with external jobid '11072.mu01'.
+
+[Sat Feb  4 14:56:24 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/40000/sjap_40000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5
+    jobid: 47
+    reason: Updated input files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/40000/sjap_40000_matrix.h5
+    wildcards: resolution=40000, sample=sjap
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/40000/sjap_40000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/40000/sjap_40000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5 
+
+Submitted job 47 with external jobid '11073.mu01'.
+
+[Sat Feb  4 14:56:24 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/syun_500000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/syun_500000_correct.pdf
+    jobid: 5
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/syun_500000_correct.pdf
+    wildcards: resolution=500000, sample=syun
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/syun_500000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/syun_500000_correct.pdf
+
+Submitted job 5 with external jobid '11074.mu01'.
+
+[Sat Feb  4 14:56:24 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/syun_300000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/300000/syun_300000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/300000/syun_300000_corrected.h5
+    jobid: 33
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/300000/syun_300000_corrected.h5
+    wildcards: resolution=300000, sample=syun
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/syun_300000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/300000/syun_300000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/syun_300000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/300000/syun_300000_corrected.h5 
+
+Submitted job 33 with external jobid '11075.mu01'.
+
+[Sat Feb  4 14:56:24 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/50000/sjap_50000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/50000/sjap_50000_correct.pdf
+    jobid: 27
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/50000/sjap_50000_correct.pdf
+    wildcards: resolution=50000, sample=sjap
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/50000/sjap_50000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/50000/sjap_50000_correct.pdf
+
+Submitted job 27 with external jobid '11076.mu01'.
+
+[Sat Feb  4 14:56:24 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/scep_25000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/scep_25000_correct.pdf
+    jobid: 13
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/scep_25000_correct.pdf
+    wildcards: resolution=25000, sample=scep
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/scep_25000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/scep_25000_correct.pdf
+
+Submitted job 13 with external jobid '11077.mu01'.
+
+[Sat Feb  4 14:56:24 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/scep_500000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/500000/scep_500000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/500000/scep_500000_corrected.h5
+    jobid: 41
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/500000/scep_500000_corrected.h5
+    wildcards: resolution=500000, sample=scep
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/scep_500000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/500000/scep_500000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/scep_500000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/500000/scep_500000_corrected.h5 
+
+Submitted job 41 with external jobid '11078.mu01'.
+
+[Sat Feb  4 14:56:24 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/40000/sjap_40000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/40000/sjap_40000_correct.pdf
+    jobid: 20
+    reason: Updated input files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/40000/sjap_40000_matrix.h5
+    wildcards: resolution=40000, sample=sjap
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/40000/sjap_40000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/40000/sjap_40000_correct.pdf
+
+Submitted job 20 with external jobid '11079.mu01'.
+
+[Sat Feb  4 14:56:25 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/syun_300000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/syun_300000_correct.pdf
+    jobid: 6
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/syun_300000_correct.pdf
+    wildcards: resolution=300000, sample=syun
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/syun_300000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/syun_300000_correct.pdf
+
+Submitted job 6 with external jobid '11080.mu01'.
+
+[Sat Feb  4 14:56:25 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/10000/sjap_10000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5
+    jobid: 48
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5
+    wildcards: resolution=10000, sample=sjap
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/10000/sjap_10000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/10000/sjap_10000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5 
+
+Submitted job 48 with external jobid '11081.mu01'.
+
+[Sat Feb  4 14:56:25 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000_corrected.h5
+    jobid: 34
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000_corrected.h5
+    wildcards: resolution=5000, sample=syun
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000_corrected.h5 
+
+Submitted job 34 with external jobid '11082.mu01'.
+
+[Sat Feb  4 14:56:25 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/syun_100000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/100000/syun_100000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/100000/syun_100000_corrected.h5
+    jobid: 28
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/100000/syun_100000_corrected.h5
+    wildcards: resolution=100000, sample=syun
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/syun_100000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/100000/syun_100000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/syun_100000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/100000/syun_100000_corrected.h5 
+
+Submitted job 28 with external jobid '11083.mu01'.
+
+[Sat Feb  4 14:56:25 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/scep_500000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/scep_500000_correct.pdf
+    jobid: 14
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/scep_500000_correct.pdf
+    wildcards: resolution=500000, sample=scep
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/scep_500000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/500000/scep_500000_correct.pdf
+
+Submitted job 14 with external jobid '11084.mu01'.
+
+[Sat Feb  4 14:56:25 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/scep_300000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/300000/scep_300000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/300000/scep_300000_corrected.h5
+    jobid: 42
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/300000/scep_300000_corrected.h5
+    wildcards: resolution=300000, sample=scep
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/scep_300000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/300000/scep_300000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/300000/scep_300000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/300000/scep_300000_corrected.h5 
+
+Submitted job 42 with external jobid '11085.mu01'.
+
+[Sat Feb  4 14:56:26 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/10000/sjap_10000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/10000/sjap_10000_correct.pdf
+    jobid: 21
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/10000/sjap_10000_correct.pdf
+    wildcards: resolution=10000, sample=sjap
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/10000/sjap_10000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/10000/sjap_10000_correct.pdf
+
+Submitted job 21 with external jobid '11086.mu01'.
+
+[Sat Feb  4 14:56:26 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_correct.pdf
+    jobid: 7
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_correct.pdf
+    wildcards: resolution=5000, sample=syun
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_correct.pdf
+
+Submitted job 7 with external jobid '11087.mu01'.
+
+[Sat Feb  4 14:56:26 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/sjap_25000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/sjap_25000_correct.pdf
+    jobid: 22
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/sjap_25000_correct.pdf
+    wildcards: resolution=25000, sample=sjap
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/sjap_25000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/25000/sjap_25000_correct.pdf
+
+Submitted job 22 with external jobid '11088.mu01'.
+Terminating processes on user request, this might take some time.
+Cancelling snakemake on user request.

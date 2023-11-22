@@ -1,0 +1,165 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 10
+Job stats:
+job                             count    min threads    max threads
+----------------------------  -------  -------------  -------------
+all                                 1              1              1
+hicFindTADs_default                10             24             24
+hicFindTADs_try_default_step      195             24             24
+hicFindTADs_try_with_step         600             24             24
+total                             806              1             24
+
+Select jobs to execute...
+
+[Thu Jan 19 22:11:03 2023]
+rule hicFindTADs_try_default_step:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/d_scep_40000_P_0.005_MinD_3_MaxD_10_Delta_0.05_boundaries.bed
+    jobid: 777
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/d_scep_40000_P_0.005_MinD_3_MaxD_10_Delta_0.05_boundaries.bed
+    wildcards: resolution=40000, sample=scep, pval=0.005, mindepth=3, maxdepth=10, delta=0.05
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.005  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/d_scep_40000_P_0.005_MinD_3_MaxD_10_Delta_0.05  --numberOfProcessors 24  --minDepth $((3*40000))  --maxDepth $((10*40000))  --delta 0.05 
+
+Submitted job 777 with external jobid '10288.mu01'.
+
+[Thu Jan 19 22:11:05 2023]
+rule hicFindTADs_try_default_step:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/d_sjap_40000_P_0.1_MinD_5_MaxD_10_Delta_0.05_boundaries.bed
+    jobid: 707
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/d_sjap_40000_P_0.1_MinD_5_MaxD_10_Delta_0.05_boundaries.bed
+    wildcards: resolution=40000, sample=sjap, pval=0.1, mindepth=5, maxdepth=10, delta=0.05
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.1  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/d_sjap_40000_P_0.1_MinD_5_MaxD_10_Delta_0.05  --numberOfProcessors 24  --minDepth $((5*40000))  --maxDepth $((10*40000))  --delta 0.05 
+
+Submitted job 707 with external jobid '10289.mu01'.
+
+[Thu Jan 19 22:11:05 2023]
+rule hicFindTADs_try_with_step:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_P_0.05_MinD_5_MaxD_10_Delta_0.05_Step_1.5_boundaries.bed
+    jobid: 120
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_P_0.05_MinD_5_MaxD_10_Delta_0.05_Step_1.5_boundaries.bed
+    wildcards: resolution=40000, sample=sjap, pval=0.05, mindepth=5, maxdepth=10, delta=0.05, step=1.5
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.05  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_P_0.05_MinD_5_MaxD_10_Delta_0.05_Step_1.5  --numberOfProcessors 24  --minDepth $((5*40000))  --maxDepth $((10*40000))  --step $((1.5*40000  --delta 0.05 
+
+Submitted job 120 with external jobid '10290.mu01'.
+
+[Thu Jan 19 22:11:05 2023]
+rule hicFindTADs_try_with_step:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.01_MinD_5_MaxD_10_Delta_0.01_Step_2_boundaries.bed
+    jobid: 358
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.01_MinD_5_MaxD_10_Delta_0.01_Step_2_boundaries.bed
+    wildcards: resolution=40000, sample=scep, pval=0.01, mindepth=5, maxdepth=10, delta=0.01, step=2
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.01  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.01_MinD_5_MaxD_10_Delta_0.01_Step_2  --numberOfProcessors 24  --minDepth $((5*40000))  --maxDepth $((10*40000))  --step $((2*40000  --delta 0.01 
+
+Submitted job 358 with external jobid '10291.mu01'.
+
+[Thu Jan 19 22:11:06 2023]
+rule hicFindTADs_try_with_step:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.05_MinD_3_MaxD_10_Delta_0.01_Step_1_boundaries.bed
+    jobid: 386
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.05_MinD_3_MaxD_10_Delta_0.01_Step_1_boundaries.bed
+    wildcards: resolution=40000, sample=scep, pval=0.05, mindepth=3, maxdepth=10, delta=0.01, step=1
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.05  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.05_MinD_3_MaxD_10_Delta_0.01_Step_1  --numberOfProcessors 24  --minDepth $((3*40000))  --maxDepth $((10*40000))  --step $((1*40000  --delta 0.01 
+
+Submitted job 386 with external jobid '10292.mu01'.
+
+[Thu Jan 19 22:11:06 2023]
+rule hicFindTADs_try_with_step:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.001_MinD_3_MaxD_6_Delta_0.005_Step_2_boundaries.bed
+    jobid: 442
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.001_MinD_3_MaxD_6_Delta_0.005_Step_2_boundaries.bed
+    wildcards: resolution=40000, sample=scep, pval=0.001, mindepth=3, maxdepth=6, delta=0.005, step=2
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.001  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.001_MinD_3_MaxD_6_Delta_0.005_Step_2  --numberOfProcessors 24  --minDepth $((3*40000))  --maxDepth $((6*40000))  --step $((2*40000  --delta 0.005 
+
+Submitted job 442 with external jobid '10293.mu01'.
+
+[Thu Jan 19 22:11:06 2023]
+rule hicFindTADs_try_with_step:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.005_MinD_3_MaxD_6_Delta_0.001_Step_1.5_boundaries.bed
+    jobid: 498
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.005_MinD_3_MaxD_6_Delta_0.001_Step_1.5_boundaries.bed
+    wildcards: resolution=40000, sample=scep, pval=0.005, mindepth=3, maxdepth=6, delta=0.001, step=1.5
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.005  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.005_MinD_3_MaxD_6_Delta_0.001_Step_1.5  --numberOfProcessors 24  --minDepth $((3*40000))  --maxDepth $((6*40000))  --step $((1.5*40000  --delta 0.001 
+
+Submitted job 498 with external jobid '10294.mu01'.
+
+[Thu Jan 19 22:11:06 2023]
+rule hicFindTADs_try_with_step:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.1_MinD_3_MaxD_10_Delta_0.1_Step_2_boundaries.bed
+    jobid: 580
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.1_MinD_3_MaxD_10_Delta_0.1_Step_2_boundaries.bed
+    wildcards: resolution=40000, sample=scep, pval=0.1, mindepth=3, maxdepth=10, delta=0.1, step=2
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5  --thresholdComparisons 0.1  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/scep_40000_P_0.1_MinD_3_MaxD_10_Delta_0.1_Step_2  --numberOfProcessors 24  --minDepth $((3*40000))  --maxDepth $((10*40000))  --step $((2*40000  --delta 0.1 
+
+Submitted job 580 with external jobid '10295.mu01'.
+
+[Thu Jan 19 22:11:06 2023]
+rule hicFindTADs_try_default_step:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/d_sjap_40000_P_0.1_MinD_5_MaxD_10_Delta_0.001_boundaries.bed
+    jobid: 708
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/d_sjap_40000_P_0.1_MinD_5_MaxD_10_Delta_0.001_boundaries.bed
+    wildcards: resolution=40000, sample=sjap, pval=0.1, mindepth=5, maxdepth=10, delta=0.001
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.1  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/d_sjap_40000_P_0.1_MinD_5_MaxD_10_Delta_0.001  --numberOfProcessors 24  --minDepth $((5*40000))  --maxDepth $((10*40000))  --delta 0.001 
+
+Submitted job 708 with external jobid '10296.mu01'.
+
+[Thu Jan 19 22:11:06 2023]
+rule hicFindTADs_try_with_step:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_P_0.005_MinD_3_MaxD_10_Delta_0.01_Step_1.5_boundaries.bed
+    jobid: 207
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_P_0.005_MinD_3_MaxD_10_Delta_0.01_Step_1.5_boundaries.bed
+    wildcards: resolution=40000, sample=sjap, pval=0.005, mindepth=3, maxdepth=10, delta=0.01, step=1.5
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicFindTADs --correctForMultipleTesting fdr  -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5  --thresholdComparisons 0.005  --outPrefix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/5_hicFindTADs/40000/sjap_40000_P_0.005_MinD_3_MaxD_10_Delta_0.01_Step_1.5  --numberOfProcessors 24  --minDepth $((3*40000))  --maxDepth $((10*40000))  --step $((1.5*40000  --delta 0.01 
+
+Submitted job 207 with external jobid '10297.mu01'.
+Terminating processes on user request, this might take some time.
+Cancelling snakemake on user request.

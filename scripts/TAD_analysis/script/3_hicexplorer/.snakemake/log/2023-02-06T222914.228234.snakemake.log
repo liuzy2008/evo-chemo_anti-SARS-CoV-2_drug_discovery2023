@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule hicCorrectMatrix_plot in line 13 of /home/lengliang/lzy/sj_3d/script/4_hicexplorer/4_correct.smk:
+Missing input files for rule hicCorrectMatrix_plot:
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/yun_100000_correct.pdf
+    wildcards: resolution=100000, sample=yun
+    affected files:
+        /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/100000/yun_100000_matrix.h5

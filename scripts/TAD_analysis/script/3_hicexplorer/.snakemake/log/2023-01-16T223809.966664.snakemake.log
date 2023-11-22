@@ -1,0 +1,455 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 20
+Job stats:
+job                      count    min threads    max threads
+---------------------  -------  -------------  -------------
+all                          1              1              1
+hicCorrectMatrix             1             24             24
+hicCorrectMatrix_plot        1             24             24
+hicPlotMatrix               16             24             24
+total                       19              1             24
+
+Select jobs to execute...
+
+[Mon Jan 16 22:38:10 2023]
+rule hicCorrectMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000_corrected.h5
+    jobid: 34
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000_corrected.h5
+    wildcards: resolution=5000, sample=syun
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000.pdf 
+~/lzy/mambaforge/bin/hicCorrectMatrix correct -m /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5 --filterThreshold -1.5 5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/syun_5000_corrected.h5 
+
+Submitted job 34 with external jobid '9990.mu01'.
+
+[Mon Jan 16 22:38:13 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/syun_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_conbine_log.pdf
+    jobid: 56
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_perchr.pdf
+    wildcards: resolution=40000, sample=syun
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/syun_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/syun_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/syun_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/syun_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 56 with external jobid '9991.mu01'.
+
+[Mon Jan 16 22:38:13 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/scep_5000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_conbine_log.pdf
+    jobid: 70
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_conbine.pdf
+    wildcards: resolution=5000, sample=scep
+    threads: 24
+    resources: mem_mb=1106, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/scep_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/scep_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/scep_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/scep_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 70 with external jobid '9992.mu01'.
+
+[Mon Jan 16 22:38:13 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/syun_10000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_conbine_log.pdf
+    jobid: 57
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_conbine.pdf
+    wildcards: resolution=10000, sample=syun
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/syun_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/syun_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/syun_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/syun_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 57 with external jobid '9993.mu01'.
+
+[Mon Jan 16 22:38:13 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_conbine_log.pdf
+    jobid: 75
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_conbine.pdf
+    wildcards: resolution=10000, sample=sjap
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 75 with external jobid '9994.mu01'.
+
+[Mon Jan 16 22:38:13 2023]
+rule hicCorrectMatrix_plot:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_correct.pdf
+    jobid: 7
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_correct.pdf
+    wildcards: resolution=5000, sample=syun
+    threads: 24
+    resources: mem_mb=24576, disk_mb=1000, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicCorrectMatrix diagnostic_plot --matrix /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_matrix.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/2_hicNormmalize/5000/syun_5000_correct.pdf
+
+Submitted job 7 with external jobid '9995.mu01'.
+
+[Mon Jan 16 22:38:13 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/syun_50000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/syun_50000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/syun_50000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/syun_50000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/syun_50000_conbine_log.pdf
+    jobid: 63
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/syun_50000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/syun_50000_conbine.pdf
+    wildcards: resolution=50000, sample=syun
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/syun_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/syun_50000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/syun_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/syun_50000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/syun_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/syun_50000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/syun_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/syun_50000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 63 with external jobid '9996.mu01'.
+
+[Mon Jan 16 22:38:14 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/scep_40000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/scep_40000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/scep_40000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/scep_40000_conbine_log.pdf
+    jobid: 65
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/scep_40000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/scep_40000_conbine.pdf
+    wildcards: resolution=40000, sample=scep
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/scep_40000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/scep_40000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/scep_40000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/scep_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/scep_40000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 65 with external jobid '9997.mu01'.
+
+[Mon Jan 16 22:38:14 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/sjap_5000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_conbine_log.pdf
+    jobid: 79
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_conbine.pdf
+    wildcards: resolution=5000, sample=sjap
+    threads: 24
+    resources: mem_mb=1103, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/sjap_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/sjap_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/sjap_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/sjap_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 79 with external jobid '9998.mu01'.
+
+[Mon Jan 16 22:38:14 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/scep_25000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/scep_25000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/scep_25000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/scep_25000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/scep_25000_conbine_log.pdf
+    jobid: 67
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/scep_25000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/scep_25000_conbine.pdf
+    wildcards: resolution=25000, sample=scep
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/scep_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/scep_25000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/scep_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/scep_25000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/scep_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/scep_25000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/scep_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/scep_25000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 67 with external jobid '9999.mu01'.
+
+[Mon Jan 16 22:38:14 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/sjap_50000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/sjap_50000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/sjap_50000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/sjap_50000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/sjap_50000_conbine_log.pdf
+    jobid: 81
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/sjap_50000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/sjap_50000_conbine.pdf
+    wildcards: resolution=50000, sample=sjap
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/sjap_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/sjap_50000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/sjap_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/sjap_50000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/sjap_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/sjap_50000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/sjap_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/sjap_50000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 81 with external jobid '10000.mu01'.
+
+[Mon Jan 16 22:38:14 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/100000/syun_100000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/100000/syun_100000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/100000/syun_100000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/100000/syun_100000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/100000/syun_100000_conbine_log.pdf
+    jobid: 55
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/100000/syun_100000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/100000/syun_100000_conbine.pdf
+    wildcards: resolution=100000, sample=syun
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/100000/syun_100000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/100000/syun_100000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/100000/syun_100000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/100000/syun_100000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/100000/syun_100000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/100000/syun_100000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/100000/syun_100000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/100000/syun_100000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 55 with external jobid '10001.mu01'.
+
+[Mon Jan 16 22:38:14 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/scep_50000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/scep_50000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/scep_50000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/scep_50000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/scep_50000_conbine_log.pdf
+    jobid: 72
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/scep_50000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/scep_50000_conbine.pdf
+    wildcards: resolution=50000, sample=scep
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/scep_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/scep_50000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/scep_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/scep_50000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/scep_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/scep_50000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/50000/scep_50000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/50000/scep_50000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 72 with external jobid '10002.mu01'.
+
+[Mon Jan 16 22:38:14 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/syun_25000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/syun_25000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/syun_25000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/syun_25000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/syun_25000_conbine_log.pdf
+    jobid: 58
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/syun_25000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/syun_25000_conbine.pdf
+    wildcards: resolution=25000, sample=syun
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/syun_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/syun_25000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/syun_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/syun_25000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/syun_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/syun_25000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/syun_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/syun_25000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 58 with external jobid '10003.mu01'.
+
+[Mon Jan 16 22:38:15 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/sjap_40000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/sjap_40000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/sjap_40000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/sjap_40000_conbine_log.pdf
+    jobid: 74
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/sjap_40000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/sjap_40000_perchr.pdf
+    wildcards: resolution=40000, sample=sjap
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/sjap_40000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/sjap_40000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/sjap_40000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/sjap_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/sjap_40000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 74 with external jobid '10004.mu01'.
+
+[Mon Jan 16 22:38:15 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/sjap_25000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/sjap_25000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/sjap_25000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/sjap_25000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/sjap_25000_conbine_log.pdf
+    jobid: 76
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/sjap_25000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/sjap_25000_perchr.pdf
+    wildcards: resolution=25000, sample=sjap
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/sjap_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/sjap_25000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/sjap_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/sjap_25000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/sjap_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/sjap_25000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/25000/sjap_25000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/25000/sjap_25000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 76 with external jobid '10005.mu01'.
+
+[Mon Jan 16 22:38:15 2023]
+rule hicPlotMatrix:
+    input: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/scep_10000_corrected.h5
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_conbine_log.pdf
+    jobid: 66
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_perchr.pdf
+    wildcards: resolution=10000, sample=scep
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/scep_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/scep_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/scep_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/scep_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+Submitted job 66 with external jobid '10006.mu01'.
+[Mon Jan 16 22:39:37 2023]
+Error in rule hicPlotMatrix:
+    jobid: 70
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_conbine_log.pdf
+    shell:
+        
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/scep_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/scep_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/scep_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/scep_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/scep_5000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 9992.mu01
+
+Error executing rule hicPlotMatrix on cluster (jobid: 70, external: 9992.mu01, jobscript: /home/lengliang/lzy/sj_3d/script/4_hicexplorer/.snakemake/tmp.2t8iksi9/snakejob.hicPlotMatrix.70.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Jan 16 22:40:44 2023]
+Error in rule hicPlotMatrix:
+    jobid: 79
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_conbine_log.pdf
+    shell:
+        
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/sjap_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/sjap_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/sjap_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/5000/sjap_5000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/5000/sjap_5000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 9998.mu01
+
+Error executing rule hicPlotMatrix on cluster (jobid: 79, external: 9998.mu01, jobscript: /home/lengliang/lzy/sj_3d/script/4_hicexplorer/.snakemake/tmp.2t8iksi9/snakejob.hicPlotMatrix.79.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Jan 16 22:51:22 2023]
+Finished job 81.
+1 of 19 steps (5%) done
+[Mon Jan 16 22:52:28 2023]
+Finished job 65.
+2 of 19 steps (11%) done
+[Mon Jan 16 22:53:01 2023]
+Finished job 63.
+3 of 19 steps (16%) done
+[Mon Jan 16 22:55:36 2023]
+Error in rule hicPlotMatrix:
+    jobid: 75
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_conbine_log.pdf
+    shell:
+        
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/sjap_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/sjap_10000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 9994.mu01
+
+Error executing rule hicPlotMatrix on cluster (jobid: 75, external: 9994.mu01, jobscript: /home/lengliang/lzy/sj_3d/script/4_hicexplorer/.snakemake/tmp.2t8iksi9/snakejob.hicPlotMatrix.75.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Jan 16 22:56:42 2023]
+Finished job 55.
+4 of 19 steps (21%) done
+[Mon Jan 16 22:58:32 2023]
+Error in rule hicPlotMatrix:
+    jobid: 56
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_conbine_log.pdf
+    shell:
+        
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/syun_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/syun_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/syun_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/40000/syun_40000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/40000/syun_40000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 9991.mu01
+
+Error executing rule hicPlotMatrix on cluster (jobid: 56, external: 9991.mu01, jobscript: /home/lengliang/lzy/sj_3d/script/4_hicexplorer/.snakemake/tmp.2t8iksi9/snakejob.hicPlotMatrix.56.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Jan 16 23:01:53 2023]
+Finished job 72.
+5 of 19 steps (26%) done
+[Mon Jan 16 23:02:43 2023]
+Error in rule hicPlotMatrix:
+    jobid: 57
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_conbine_log.pdf
+    shell:
+        
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/syun_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/syun_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/syun_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/syun_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/syun_10000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 9993.mu01
+
+Error executing rule hicPlotMatrix on cluster (jobid: 57, external: 9993.mu01, jobscript: /home/lengliang/lzy/sj_3d/script/4_hicexplorer/.snakemake/tmp.2t8iksi9/snakejob.hicPlotMatrix.57.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Jan 16 23:08:23 2023]
+Finished job 74.
+6 of 19 steps (32%) done
+[Mon Jan 16 23:16:14 2023]
+Finished job 67.
+7 of 19 steps (37%) done
+[Mon Jan 16 23:17:54 2023]
+Error in rule hicPlotMatrix:
+    jobid: 66
+    output: /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_perchr.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_conbine.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_perchr_log.pdf, /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_conbine_log.pdf
+    shell:
+        
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/scep_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_perchr_log.pdf --dpi 330 --perChr --log1p 
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/scep_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_conbine_log.pdf  --dpi 330 --log1p  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/scep_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_conbine.pdf  --dpi 330 --vMax 4  
+~/lzy/mambaforge/bin/hicPlotMatrix -m  /home/lengliang/lzy/sj_3d/results/4_hicexplorer/3_hicCorrectMatrix/10000/scep_10000_corrected.h5 -o /home/lengliang/lzy/sj_3d/results/4_hicexplorer/4_hicPlotMatrix/10000/scep_10000_perchr.pdf --dpi 330 --perChr --vMax 4  
+
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 10006.mu01
+
+Error executing rule hicPlotMatrix on cluster (jobid: 66, external: 10006.mu01, jobscript: /home/lengliang/lzy/sj_3d/script/4_hicexplorer/.snakemake/tmp.2t8iksi9/snakejob.hicPlotMatrix.66.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Jan 16 23:26:04 2023]
+Finished job 76.
+8 of 19 steps (42%) done
+[Mon Jan 16 23:37:35 2023]
+Finished job 58.
+9 of 19 steps (47%) done
+Terminating processes on user request, this might take some time.
+1 out of 1 calls to --cluster-cancel failed.  This is safe to ignore in most cases.
+Complete log: .snakemake/log/2023-01-16T223809.966664.snakemake.log

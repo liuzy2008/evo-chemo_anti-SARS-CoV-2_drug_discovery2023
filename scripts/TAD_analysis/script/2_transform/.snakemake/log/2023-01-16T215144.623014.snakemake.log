@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule hicpro2juicer in line 11 of /home/lengliang/lzy/sj_3d/script/2_transform/2.2_transform_juicer.smk:
+Missing input files for rule hicpro2juicer:
+    output: /home/lengliang/lzy/sj_3d/results/2_transform/juicer/syun/syun.allValidPairs.hic
+    wildcards: sample=syun
+    affected files:
+        /home/lengliang/lzy/sj_3d/results/1_hicpro/scep/hic_results/data/syun/syun.allValidPairs

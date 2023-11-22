@@ -1,0 +1,502 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 10
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+all                   1              1              1
+hicDetectLoops        8             24             24
+total                 9              1             24
+
+Select jobs to execute...
+
+[Mon Nov 28 22:27:49 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/control_50000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_50000_loop.log
+    jobid: 2
+    reason: Missing output files: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph
+    wildcards: treatment=control, resolution=50000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/control_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_50000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/control_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_50000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph
+
+Submitted job 2 with external jobid '7189.mu01'.
+
+[Mon Nov 28 22:27:51 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/control_100000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_100000_loop.log
+    jobid: 1
+    reason: Missing output files: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph
+    wildcards: treatment=control, resolution=100000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/control_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_100000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/control_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_100000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph
+
+Submitted job 1 with external jobid '7190.mu01'.
+
+[Mon Nov 28 22:27:51 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/control_250000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_250000_loop.log
+    jobid: 4
+    reason: Missing output files: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph
+    wildcards: treatment=control, resolution=250000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/control_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_250000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/control_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_250000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph
+
+Submitted job 4 with external jobid '7191.mu01'.
+
+[Mon Nov 28 22:27:51 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/heat_50000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_50000_loop.log
+    jobid: 6
+    reason: Missing output files: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph
+    wildcards: treatment=heat, resolution=50000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/heat_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_50000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/heat_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_50000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph
+
+Submitted job 6 with external jobid '7192.mu01'.
+
+[Mon Nov 28 22:27:51 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/heat_250000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_250000_loop.log
+    jobid: 8
+    reason: Missing output files: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph
+    wildcards: treatment=heat, resolution=250000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/heat_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_250000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/heat_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_250000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph
+
+Submitted job 8 with external jobid '7193.mu01'.
+
+[Mon Nov 28 22:27:51 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/control_500000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_500000_loop.log
+    jobid: 3
+    reason: Missing output files: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph
+    wildcards: treatment=control, resolution=500000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/control_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_500000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/control_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_500000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph
+
+Submitted job 3 with external jobid '7194.mu01'.
+
+[Mon Nov 28 22:27:51 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/heat_100000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_100000_loop.log
+    jobid: 5
+    reason: Missing output files: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph
+    wildcards: treatment=heat, resolution=100000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/heat_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_100000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/heat_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_100000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph
+
+Submitted job 5 with external jobid '7195.mu01'.
+
+[Mon Nov 28 22:27:52 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/heat_500000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_500000_loop.log
+    jobid: 7
+    reason: Missing output files: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph
+    wildcards: treatment=heat, resolution=500000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/heat_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_500000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/heat_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_500000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph
+
+Submitted job 7 with external jobid '7196.mu01'.
+[Mon Nov 28 22:28:09 2022]
+Error in rule hicDetectLoops:
+    jobid: 2
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_50000_loop.log (check log file(s) for error message)
+    shell:
+        
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/control_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_50000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/control_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_50000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 7189.mu01
+
+Error executing rule hicDetectLoops on cluster (jobid: 2, external: 7189.mu01, jobscript: /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/.snakemake/tmp.f2i_ujbd/snakejob.hicDetectLoops.2.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Nov 28 22:28:09 2022]
+Error in rule hicDetectLoops:
+    jobid: 1
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_100000_loop.log (check log file(s) for error message)
+    shell:
+        
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/control_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_100000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/control_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_100000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 7190.mu01
+
+Error executing rule hicDetectLoops on cluster (jobid: 1, external: 7190.mu01, jobscript: /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/.snakemake/tmp.f2i_ujbd/snakejob.hicDetectLoops.1.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Nov 28 22:28:09 2022]
+Error in rule hicDetectLoops:
+    jobid: 4
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_250000_loop.log (check log file(s) for error message)
+    shell:
+        
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/control_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_250000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/control_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_250000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 7191.mu01
+
+Error executing rule hicDetectLoops on cluster (jobid: 4, external: 7191.mu01, jobscript: /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/.snakemake/tmp.f2i_ujbd/snakejob.hicDetectLoops.4.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Nov 28 22:28:09 2022]
+Error in rule hicDetectLoops:
+    jobid: 6
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_50000_loop.log (check log file(s) for error message)
+    shell:
+        
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/heat_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_50000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/heat_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_50000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 7192.mu01
+
+Error executing rule hicDetectLoops on cluster (jobid: 6, external: 7192.mu01, jobscript: /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/.snakemake/tmp.f2i_ujbd/snakejob.hicDetectLoops.6.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Nov 28 22:28:09 2022]
+Error in rule hicDetectLoops:
+    jobid: 8
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_250000_loop.log (check log file(s) for error message)
+    shell:
+        
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/heat_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_250000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/heat_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_250000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 7193.mu01
+
+Error executing rule hicDetectLoops on cluster (jobid: 8, external: 7193.mu01, jobscript: /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/.snakemake/tmp.f2i_ujbd/snakejob.hicDetectLoops.8.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Nov 28 22:28:09 2022]
+Error in rule hicDetectLoops:
+    jobid: 3
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_500000_loop.log (check log file(s) for error message)
+    shell:
+        
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/control_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_500000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/control_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_500000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 7194.mu01
+
+Error executing rule hicDetectLoops on cluster (jobid: 3, external: 7194.mu01, jobscript: /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/.snakemake/tmp.f2i_ujbd/snakejob.hicDetectLoops.3.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Nov 28 22:28:09 2022]
+Error in rule hicDetectLoops:
+    jobid: 5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_100000_loop.log (check log file(s) for error message)
+    shell:
+        
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/heat_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_100000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/heat_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_100000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 7195.mu01
+
+Error executing rule hicDetectLoops on cluster (jobid: 5, external: 7195.mu01, jobscript: /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/.snakemake/tmp.f2i_ujbd/snakejob.hicDetectLoops.5.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Nov 28 22:28:09 2022]
+Error in rule hicDetectLoops:
+    jobid: 7
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_500000_loop.log (check log file(s) for error message)
+    shell:
+        
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/heat_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph.p${pvalue[i]}.d${dis} --maxLoopDistance ${dis} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_500000_loop.log
+            ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/heat_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph.p${pvalue[i]}.d${dis}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph.p${pvalue[i]}.d${dis}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_500000_loop.log
+
+        done
+    }
+} 
+f()
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph
+
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 7196.mu01
+
+Error executing rule hicDetectLoops on cluster (jobid: 7, external: 7196.mu01, jobscript: /home/lengliang/lzy/3d/hic-pro/script/hicexplorer/.snakemake/tmp.f2i_ujbd/snakejob.hicDetectLoops.7.sh). For error details see the cluster log and the log files of the involved rule(s).
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2022-11-28T222748.496345.snakemake.log

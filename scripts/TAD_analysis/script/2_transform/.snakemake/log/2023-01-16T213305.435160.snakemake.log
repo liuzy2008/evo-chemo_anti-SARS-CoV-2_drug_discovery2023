@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 20
+Job stats:
+job              count    min threads    max threads
+-------------  -------  -------------  -------------
+all                  1              1              1
+hicpro2juicer        1             24             24
+total                2              1             24
+
+Select jobs to execute...
+
+[Mon Jan 16 21:33:06 2023]
+rule hicpro2juicer:
+    input: /home/lengliang/lzy/sj_3d/results/1_hicpro/scep/hic_results/data/scep/scep.allValidPairs
+    output: /home/lengliang/lzy/sj_3d/results/2_transform/juicer/scep/scep.allValidPairs.hic
+    log: /home/lengliang/lzy/3d/log/scep_hicConvertFormat_juicer.log
+    jobid: 1
+    reason: Missing output files: /home/lengliang/lzy/sj_3d/results/2_transform/juicer/scep/scep.allValidPairs.hic
+    wildcards: sample=scep
+    threads: 24
+    resources: mem_mb=20394, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+/home/lengliang/lzy/soft/hicpro/HiC-Pro_3.1.0/bin/utils/hicpro2juicebox.sh -t /home/lengliang/lzy/tmp/3d/ -i /home/lengliang/lzy/sj_3d/results/1_hicpro/scep/hic_results/data/scep/scep.allValidPairs -g /home/lengliang/lzy/sj_3d/genomes/scep/genome.chrom.size -j /home/lengliang/lzy/soft/juicer/scripts/common/juicer_tools.jar -o /home/lengliang/lzy/sj_3d/results/2_transform/juicer/scep
+ls /home/lengliang/lzy/sj_3d/results/2_transform/juicer/scep/scep.allValidPairs.hic
+
+Submitted job 1 with external jobid '9852.mu01'.
+Terminating processes on user request, this might take some time.
+Complete log: .snakemake/log/2023-01-16T213305.435160.snakemake.log

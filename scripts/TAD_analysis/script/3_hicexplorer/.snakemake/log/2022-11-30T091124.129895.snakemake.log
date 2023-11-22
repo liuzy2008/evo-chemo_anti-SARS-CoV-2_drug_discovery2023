@@ -1,0 +1,716 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 10
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+all                   1              1              1
+hicDetectLoops       18             24             24
+total                19              1             24
+
+Select jobs to execute...
+
+[Wed Nov 30 09:11:25 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/heat_50000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_50000_loop.log
+    jobid: 9
+    reason: Code has changed since last execution
+    wildcards: treatment=heat, resolution=50000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/heat_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_50000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/heat_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_50000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph
+
+Submitted job 9 with external jobid '7240.mu01'.
+
+[Wed Nov 30 09:11:26 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/control_100000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_100000_loop.log
+    jobid: 10
+    reason: Code has changed since last execution
+    wildcards: treatment=control, resolution=100000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/control_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_100000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/control_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_100000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph
+
+Submitted job 10 with external jobid '7241.mu01'.
+
+[Wed Nov 30 09:11:26 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/10000/control_10000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_10000_loop.log
+    jobid: 12
+    reason: Code has changed since last execution
+    wildcards: treatment=control, resolution=10000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/10000/control_10000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_10000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/10000/control_10000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_10000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph
+
+Submitted job 12 with external jobid '7242.mu01'.
+
+[Wed Nov 30 09:11:27 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/control_500000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_500000_loop.log
+    jobid: 14
+    reason: Code has changed since last execution
+    wildcards: treatment=control, resolution=500000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/control_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_500000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/control_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_500000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph
+
+Submitted job 14 with external jobid '7243.mu01'.
+
+[Wed Nov 30 09:11:27 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/heat_100000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_100000_loop.log
+    jobid: 1
+    reason: Code has changed since last execution
+    wildcards: treatment=heat, resolution=100000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/heat_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_100000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/100000/heat_100000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_100000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph
+
+Submitted job 1 with external jobid '7244.mu01'.
+
+[Wed Nov 30 09:11:27 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/5000/control_5000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_5000_loop.log
+    jobid: 16
+    reason: Code has changed since last execution
+    wildcards: treatment=control, resolution=5000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/5000/control_5000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_5000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/5000/control_5000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_5000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph
+
+Submitted job 16 with external jobid '7245.mu01'.
+
+[Wed Nov 30 09:11:27 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/25000/heat_25000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_25000_loop.log
+    jobid: 4
+    reason: Code has changed since last execution
+    wildcards: treatment=heat, resolution=25000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/25000/heat_25000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_25000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/25000/heat_25000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_25000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph
+
+Submitted job 4 with external jobid '7246.mu01'.
+
+[Wed Nov 30 09:11:27 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/control_50000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_50000_loop.log
+    jobid: 18
+    reason: Code has changed since last execution
+    wildcards: treatment=control, resolution=50000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/control_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_50000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/50000/control_50000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_50000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph
+
+Submitted job 18 with external jobid '7247.mu01'.
+
+[Wed Nov 30 09:11:27 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/300000/heat_300000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_300000_loop.log
+    jobid: 6
+    reason: Code has changed since last execution
+    wildcards: treatment=heat, resolution=300000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/300000/heat_300000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_300000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/300000/heat_300000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_300000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph
+
+Submitted job 6 with external jobid '7248.mu01'.
+
+[Wed Nov 30 09:11:27 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/5000/heat_5000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_5000_loop.log
+    jobid: 7
+    reason: Code has changed since last execution
+    wildcards: treatment=heat, resolution=5000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/5000/heat_5000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_5000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/5000/heat_5000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_5000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph
+
+Submitted job 7 with external jobid '7249.mu01'.
+[Wed Nov 30 09:13:58 2022]
+Finished job 6.
+1 of 19 steps (5%) done
+Select jobs to execute...
+
+[Wed Nov 30 09:13:58 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/heat_500000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_500000_loop.log
+    jobid: 5
+    reason: Code has changed since last execution
+    wildcards: treatment=heat, resolution=500000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/heat_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_500000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/500000/heat_500000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_500000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph
+
+Submitted job 5 with external jobid '7250.mu01'.
+[Wed Nov 30 09:14:09 2022]
+Finished job 14.
+2 of 19 steps (11%) done
+Select jobs to execute...
+
+[Wed Nov 30 09:14:09 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/control_250000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_250000_loop.log
+    jobid: 17
+    reason: Code has changed since last execution
+    wildcards: treatment=control, resolution=250000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/control_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_250000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/control_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_250000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph
+
+Submitted job 17 with external jobid '7251.mu01'.
+[Wed Nov 30 09:14:20 2022]
+Finished job 10.
+3 of 19 steps (16%) done
+Select jobs to execute...
+
+[Wed Nov 30 09:14:20 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/10000/heat_10000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_10000_loop.log
+    jobid: 3
+    reason: Code has changed since last execution
+    wildcards: treatment=heat, resolution=10000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/10000/heat_10000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_10000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/10000/heat_10000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_10000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph
+
+Submitted job 3 with external jobid '7252.mu01'.
+[Wed Nov 30 09:14:20 2022]
+Finished job 1.
+4 of 19 steps (21%) done
+Select jobs to execute...
+
+[Wed Nov 30 09:14:20 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/40000/heat_40000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_40000_loop.log
+    jobid: 2
+    reason: Code has changed since last execution
+    wildcards: treatment=heat, resolution=40000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/40000/heat_40000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_40000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/40000/heat_40000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_40000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph
+
+Submitted job 2 with external jobid '7253.mu01'.
+[Wed Nov 30 09:15:04 2022]
+Finished job 9.
+5 of 19 steps (26%) done
+Select jobs to execute...
+
+[Wed Nov 30 09:15:04 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/25000/control_25000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_25000_loop.log
+    jobid: 13
+    reason: Code has changed since last execution
+    wildcards: treatment=control, resolution=25000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/25000/control_25000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_25000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/25000/control_25000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_25000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph
+
+Submitted job 13 with external jobid '7254.mu01'.
+[Wed Nov 30 09:15:04 2022]
+Finished job 18.
+6 of 19 steps (32%) done
+Select jobs to execute...
+
+[Wed Nov 30 09:15:04 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/40000/control_40000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_40000_loop.log
+    jobid: 11
+    reason: Code has changed since last execution
+    wildcards: treatment=control, resolution=40000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/40000/control_40000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_40000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/40000/control_40000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_40000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph
+
+Submitted job 11 with external jobid '7255.mu01'.
+[Wed Nov 30 09:16:21 2022]
+Finished job 5.
+7 of 19 steps (37%) done
+Select jobs to execute...
+
+[Wed Nov 30 09:16:21 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/heat_250000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_250000_loop.log
+    jobid: 8
+    reason: Code has changed since last execution
+    wildcards: treatment=heat, resolution=250000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/heat_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_250000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/250000/heat_250000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/heat_250000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph
+
+Submitted job 8 with external jobid '7256.mu01'.
+[Wed Nov 30 09:16:32 2022]
+Finished job 17.
+8 of 19 steps (42%) done
+Select jobs to execute...
+
+[Wed Nov 30 09:16:32 2022]
+rule hicDetectLoops:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/300000/control_300000_corrected.h5
+    output: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph
+    log: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_300000_loop.log
+    jobid: 15
+    reason: Code has changed since last execution
+    wildcards: treatment=control, resolution=300000
+    threads: 24
+    resources: mem_mb=1000, disk_mb=4191800, tmpdir=/home/lengliang/lzy/tmp/3d/
+
+
+function f(){   
+    local pvalue=(0.05 0.1 0.5 1)
+    local dis=(8000000 20000000)
+    local pp=(0.1 0.5 1 1)
+    local num=${#pvalue[@]}
+    for((i=0;i<num;i++)){
+        for d in ${dis[*]}
+        do
+            # echo "${pvalue[i]}and${d}and ${pp[i]}"
+            ~/lzy/mambaforge/bin/hicDetectLoops -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/300000/control_300000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph.p${pvalue[i]}.d${d} --maxLoopDistance ${d} --peakInteractionsThreshold 5 --threads 24 --peakWidth 2 --windowSize 5 --pValuePreselection  ${pp[i]} --pValue ${pvalue[i]} 2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_300000_loop.log
+                # -f 参数判断 $file 是否存在
+            if [ -f "/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph.p${pvalue[i]}.d${d}" ]; then
+                ~/lzy/mambaforge/bin/hicPlotMatrix -m /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/3_hicCorrectMatrix/300000/control_300000_corrected.h5 -o /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph.p${pvalue[i]}.d${d}.pdf --vMax 4 --dpi 330  --loops /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph.p${pvalue[i]}.d${d}  2>>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/log/control_300000_loop.log
+            fi
+
+        done
+    }
+} 
+f
+echo ''>/home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph
+
+Submitted job 15 with external jobid '7257.mu01'.
+[Wed Nov 30 09:18:00 2022]
+Finished job 4.
+9 of 19 steps (47%) done
+[Wed Nov 30 09:18:21 2022]
+Finished job 2.
+10 of 19 steps (53%) done
+[Wed Nov 30 09:18:51 2022]
+Finished job 8.
+11 of 19 steps (58%) done
+[Wed Nov 30 09:18:51 2022]
+Finished job 15.
+12 of 19 steps (63%) done
+[Wed Nov 30 09:19:11 2022]
+Finished job 11.
+13 of 19 steps (68%) done
+[Wed Nov 30 09:21:31 2022]
+Finished job 13.
+14 of 19 steps (74%) done
+[Wed Nov 30 09:37:43 2022]
+Finished job 12.
+15 of 19 steps (79%) done
+[Wed Nov 30 09:40:53 2022]
+Finished job 3.
+16 of 19 steps (84%) done
+[Wed Nov 30 10:46:26 2022]
+Finished job 16.
+17 of 19 steps (89%) done
+[Wed Nov 30 10:46:36 2022]
+Finished job 7.
+18 of 19 steps (95%) done
+Select jobs to execute...
+
+[Wed Nov 30 10:46:36 2022]
+localrule all:
+    input: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph
+    jobid: 0
+    reason: Input files updated by another job: /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_5000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_50000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_25000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_300000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_10000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_100000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_500000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_40000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/control/control_250000_loops.bedgraph, /home/lengliang/lzy/3d/hic-pro/4_hicexplorer/7_hicDetectLoops/heat/heat_250000_loops.bedgraph
+    resources: mem_mb=1000, disk_mb=1000, tmpdir=/tmp
+
+[Wed Nov 30 10:46:37 2022]
+Finished job 0.
+19 of 19 steps (100%) done
+Complete log: .snakemake/log/2022-11-30T091124.129895.snakemake.log
