@@ -121,3 +121,8 @@ for s in ${spices[@]}; do for t in ${types[@]}; do for f in ${files[@]}; do echo
 
 for i in `ls  filter2/`; do cat filter2/${i} |awk -v t="${i}"  'BEGIN{FS=OFS="\t";a=0}{a+=$4}END{if(a!=0){print a,$5,$6,t}}';  done 
 
+
+
+orthofinder -f ${orthf} -M msa   -a 40  
+
+nohup mcmctree mcmctree2.ctl >mcmctree.ctl.log 2>&1 &
