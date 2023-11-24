@@ -1,8 +1,8 @@
-# Genome-guided Cepharanthine analogs mining in Stephania accelerates anti-coronavirus drug discovery supplement file
+# Genome-guided Cepharanthine analogs mining in Stephania accelerates anti-coronavirus drug discovery: supplementary files
 
 ## Summary
 
-The folder contains the scripts used for creating figures, genome assembly, comparative genomics analysis, TAD analysis, gene cluster analysis and some other scripts.
+The folder contains the scripts used for creating figures, genome assembly, comparative genomics analysis, TAD analysis, gene cluster analysis, and some other scripts.
 
 ## File information
 
@@ -12,4 +12,4 @@ The folder contains the scripts used for creating figures, genome assembly, comp
 * **genome_assembly:**  The folder contains scripts for genome assembly.
 * **genome_collinearity_analysis:**  The folder contains scripts for genome collinearity analysis.
 * **TAD_analysis:**  The folder contains the scripts used for TAD analysis and gene cluster analysis.
-* **others_script:** The folder contains some shared steps for analysis and some additional steps..
+* **others_script:** The folder contains some shared steps for analysis and some additional steps.
