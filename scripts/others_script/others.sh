@@ -1,4 +1,4 @@
-#
+# 
 
 BuildDatabase -name ${sample} -engine ncbi ${genome.fa}
 

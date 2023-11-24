@@ -1,3 +1,5 @@
+# see comparative_genome_analysis for some related scripts.
+
 #  BGI short-read sequencing data
 jellyfish count -t 70 -C -m 19 -s 1G -o kmer19 -G 4 clean_R1.fq.gz clean_R2.fq.gz;jellyfish histo -v -o kmer19.histo kmer19 -t 70 -h 100000
 gce -f kmer19.histo -M 1500 -H 1 > gce.table 2> ${log}/gce.log

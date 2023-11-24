@@ -1,4 +1,4 @@
-
+# see also in TAD analysis for more related info
 
 #the core number is the result that plantismash produce empty, make sure the core number is less than real 
 source ${work_dir}/mambaforge/bin/activate plantismash

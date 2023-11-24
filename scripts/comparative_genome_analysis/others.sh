@@ -7,8 +7,8 @@ iqtree -s ${test_seq} -m MFP -b 1000 -nt 5
 raxml-ng --bootstrap --msa prim.phy --model GTR+G --prefix test --seed 2 --threads 2 --bs-trees 200
 
 python3 removeRedundantProteins.py -i ${in} -o ${out}
-# manually config cafe 
-python3 CAFE_fig.py ${cafe} -pb 0.05 -pf 0.05 --dump test/ -g svg --count_all_expansions
+
+python3 CAFE_fig.py ${cafe}  -p 0.05 -t 8 -r 10000 -filter --dump test/ -g svg --count_all_expansions
 
 
 

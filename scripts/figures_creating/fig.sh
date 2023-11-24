@@ -1,3 +1,5 @@
+# see also in analysis scripts to get more related scripts
+
 grep chr2 sjap.bed | awk '$2 >= 56360000 && $3 <= 57040000' > sjap_cluster2.bed
 grep chr13 scep.bed | awk '$2 >= 720000 && $3 <= 1160000' > scep_cluster2.bed
 cp sjap.cds sjap_cluster2.cds
@@ -61,5 +63,3 @@ python -m jcvi.graphics.synteny SjNCS_cluster2.Scep.i1.blocks SjNCS_cluster2.Sce
 python -m jcvi.formats.base join SjNCS_cluster2.Syun.i1.blocks SjNCS_cluster2.Syun.i1.blocks --noheader | cut -f1,2,4 > NCS_cluster2.blocks
 cat SjNCS_cluster2.Scep.bed Syun.bed > SjNCS_cluster2.Scep.Syun.bed 
 python -m jcvi.graphics.synteny NCS_cluster2.blocks SjNCS_cluster2.Scep.Syun.bed blocks.jayout --glyphstyle=arrow --genelabelsize 6
-# see also in analysis
-
